@@ -21,7 +21,7 @@ Este é o repositório do projeto desenvolvido para avaliação da disciplina de
 # Instalação e Configuração
 * Clone o repositório em seu computador:
 ```
-git clone https://github.com/seu-usuario/site_pinkside.git
+git clone https://github.com/jaquekm/site_pinkside.git
 ```
 * Navegue até o diretório do projeto:
   ```
