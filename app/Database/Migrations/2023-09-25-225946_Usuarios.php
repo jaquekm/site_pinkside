@@ -12,9 +12,10 @@ class Usuarios extends Migration
             'id' => ['type' => 'int', 'constraint' => 11, 'unsigned' => true, 'auto_increment' => true],
             'nome' => ['type' => 'varchar', 'constraint' => 100],
             'email' => ['type' => 'varchar', 'constraint' => 100, 'null' => true],
-            'created_at' => ['type' => 'datetime', 'null' => true],
+            'senha' => ['type' => 'varchar', 'constraint' => 100, 'null' => true],
+            'created_at' => ['type' => 'datetime'],
             'updated_at' => ['type' => 'datetime', 'null' => true],
-            'deleted_at' => ['type' => 'datetime', 'null' => true],
+          
         ]);
 
         $this->forge->addKey('id');
@@ -23,6 +24,6 @@ class Usuarios extends Migration
 
     public function down()
     {
-        //$this->forge->dropTable('usuarios');
+        $this->forge->dropTable('usuarios');
     }
 }

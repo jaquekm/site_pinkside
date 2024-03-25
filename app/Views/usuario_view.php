@@ -9,29 +9,39 @@
 </head>
 
 <body>
-    <h1>Dados do Usuário</h1>
-    <table class="table">
-        <thead>
-            <tr>
-                <th>Nome</th>
-                <th>Email</th>
-                <th>Ações</th>
-            </tr>
-        </thead>
-        <tbody>
-            <?php foreach ($usuario as $u) : ?>
+
+<div class="container d-flex justify-content-center align-items-center" style="height: 100vh;">
+    <div class="col-md-6">
+        <h1 class="text-center">Dados do Usuário</h1>
+        <table class="table">
+            <thead>
                 <tr>
-                    <td><?= $u->nome; ?></td>
-                    <td><?= $u->email; ?></td>
-                    <td>
-                        <form action="<?= base_url('usuario/deletar/'.$u->id) ?>" method="post">
-                            <button type="submit" class="btn btn-danger">Deletar</button>
-                        </form>
-                    </td>
+                    <th>Nome</th>
+                    <th>Email</th>
+                    <th>Ações</th>
                 </tr>
-            <?php endforeach; ?>
-        </tbody>
-    </table>
+            </thead>
+            <tbody>
+                <?php foreach ($usuario as $usuario) : ?>
+                    <tr>
+                        <td><?= $usuario->nome; ?></td>
+                        <td><?= $usuario->email; ?></td>
+                        <td> 
+                            <div class="d-flex">
+                                <form action="<?= base_url('usuario/deletar/'.$usuario->id) ?>" method="post">
+                                    <button type="submit" class="btn btn-danger">Deletar</button>
+                                </form>
+                                <a href="<?= base_url('editar_usuario/'.$usuario->id) ?>" class="btn btn-primary">Editar</a>
+                            </div>
+                        </td>
+                    </tr>
+                <?php endforeach; ?>
+            </tbody>
+        </table>
+        <a href="<?= base_url('/') ?>" class="btn btn-primary">Criar Usuário</a>
+    </div>
+</div>
+
 </body>
 
 </html>

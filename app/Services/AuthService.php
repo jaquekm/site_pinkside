@@ -12,31 +12,22 @@ class AuthService{
 
     public function __construct()
     {
-        $this->userModel = service('userModel');
+        $this->userModel = service('UsuarioModel');
         $this->userModel = Factories::models(UsuarioModel::class);
         $this->userModel = new UsuarioModel();
         
     }
 
     /* 'userModel' => UserModel::class, */
-    public function authenticate($email, $senha){
+    public function authenticate(string $email, string $senha){
 
         $user = $this->userModel->getUser($email);
       /*   debug(password_verify($senha, $user->senha)); */
         if($user && password_verify($senha, $user->senha)){
            
-            $variavalDeSessao = [
-                'email' => $user->email,
-                'data_login' => bd2br(date('Y-m-d')),
-                'data_cad' => $user->created_at,
-                'isLoggedIn' => true,
-            ];
-      
-            session()->set($variavalDeSessao);
-           
             return true;
         }else{
-            session()->setFlashdata('error', 'Usuário inválido');
+          
             return false;
         }
     }

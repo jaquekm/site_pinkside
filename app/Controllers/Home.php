@@ -6,12 +6,6 @@ use App\Models\UsuarioModel;
 
 class Home extends BaseController
 {
-    public function index (){
-        $data = [
-            
-        ];
-        return view('usuario', $data);
-    }
     public function mostrarUsuario()
     {
         $usuarioModel = new UsuarioModel();
